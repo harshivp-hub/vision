@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Vision</title>
+</head>
+
+<body>
+    <script>
+        function getData(event) {
+            fetch('http://127.0.0.1:5000/braille')
+                .then(response => response.text())
+                .then(data => displayData(data, event))
+                .catch(error => console.error(error))
+        }
+
+        function displayData(data, event) {
+            const displayArea = document.getElementById("displayArea");
+            displayArea.innerHTML = data;
+            event.preventDefault();
+        }
+    </script>
+    <div id="background"></div>
+    <div class=" card"
+        style="width: 28rem; justify-content: center; left: 600px;  top: 170px; position: relative; top: -80vh;">
+        <div class="card-body">
+            <h5 class="card-title" style="padding-left: 80; font-size: 30px;"> Welcome to Vizion!!!</h5>
+            <a class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
+                title="Convert screen text to braille" role="button" onclick="getData(event)"
+                style="margin-left: 83px; margin-top: 10px;"">CHANGE THE TEXT TO BRAILLE</a>
+        <a class=" btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Convert screen text to braille"
+                role="button" style="margin-left: 76px; margin-top: 10px;">CHANGE THE Speech
+                TO
+                BRAILLE</a>
+        </div>
+    </div>
+    <div class="cards" style="display: inline-flex; margin-top: -70vh; margin-left: 450px;">
+        <div class="container" style="display: inline-flex;">
+            <div class="card" style=" background-color: black;
+                color: white;
+                padding: 2rem 2rem 0rem;
+                margin-right: 10px;
+                width: 35ch;
+                height: 30ch;
+                border-radius: 19px;
+                overflow: hidden;
+                transition: transform 500ms ease;">
+                <div class="card-content">
+                    <h2 class="card-title">Text</h2>
+                    <p class="card-body">
+                    <p id="displayArea">{{text}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="display: inline-flex;">
+            <div class="card" style=" background-color: black;
+                color: white;
+                padding: 2rem 2rem 0rem;
+                margin-right: 10px;
+                width: 35ch;
+                height: 30ch;
+                border-radius: 19px;
+                overflow: hidden;
+                transition: transform 500ms ease;">
+                <div class="card-content">
+                    <h2 class="card-title">Braille Text</h2>
+                    <p class="card-body">
+                    <p>{{braille}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div style="background-color: grey; margin-left: 500px; margin-right: 500px; display: block; border-radius: 20;"> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <!-- </div> -->
+
+</body>
+
+</html>

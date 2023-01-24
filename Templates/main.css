@@ -1,0 +1,11 @@
+.maincontainer {
+    display: block;
+    position: absolute;
+}
+
+#background {
+    background-image: url("Artboard1.png");
+    background-size: cover;
+    opacity: 60%;
+    height: 94vh;
+}

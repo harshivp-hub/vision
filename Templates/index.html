@@ -13,7 +13,7 @@
 <body>
     <script>
         function getData(event) {
-            fetch('https://api.github.com/harshivp-hub/vision/blob/main/app.py')
+            fetch('https://api.github.com/harshivp-hub/vision/main/app.py')
                 .then(response => response.text())
                 .then(data => displayData(data, event))
                 .catch(error => console.error(error))

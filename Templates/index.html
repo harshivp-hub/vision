@@ -12,8 +12,8 @@
 
 <body>
     <script>
-        function getData(event) {
-            fetch('https://raw.githubusercontent.com/harshivp-hub/vision/main/app')
+          function getData(event) {
+            fetch('https://github.com/harshivp-hub/vision/blob/main/braille.txt')
                 .then(response => response.text())
                 .then(data => displayData(data, event))
                 .catch(error => console.error(error))
